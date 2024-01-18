@@ -4,6 +4,7 @@ import Player from "./Player";
 import InputForm from "./InputForm";
 import Answers from "./Answers";
 import { useState } from "react";
+const gen = require("random-seed");
 
 function Container() {
   const [answers, setAnswers] = useState([]);
@@ -33,13 +34,16 @@ function Container() {
   });
 
   const dayOfMonth = new Date().getDate() + 1;
-  const idx = (dayOfMonth ** 7 - 1) % songs.length;
+  const rand = gen.create(dayOfMonth);
+  const idx = rand(songs.length)
   const randomSong = songs[idx];
+
+  const timeArray = [1, 2, 4, 8, 12, 5000]
 
   return (
     <div className="flex flex-col mx-auto max-w-[500px] items-center justify-center gap-6 py-12 px-6">
-      <Answers answers={answers} />
-      <Player song={randomSong} answers={answers} />
+      <Answers answers={answers} timeArray={timeArray} />
+      <Player song={randomSong} answers={answers} timeArray={timeArray} />
       <InputForm
         songList={songs}
         song={randomSong}

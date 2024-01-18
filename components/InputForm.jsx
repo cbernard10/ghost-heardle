@@ -39,10 +39,10 @@ function InputForm({ songList, song, answers, setAnswers }) {
     <>
       {answers[answers.length - 1] && answers[answers.length - 1].correct ? (
         <p className="text-xl">
-          Congratulations, today&apos;s song was {song.title}
+          Well played!
         </p>
       ) : answers.length >= 5 ? (
-        <p>Sorry, today&apos;s song was {song.title}</p>
+        <p>Today&apos;s song was {song.title}</p>
       ) : (
         <div className="w-full h-auto outline-none flex flex-col gap-4">
           <div className="w-full">
@@ -97,7 +97,7 @@ function InputForm({ songList, song, answers, setAnswers }) {
           </div>
           <div className="flex flex-row w-full gap-6">
             <button
-              className="px-6 bg-red-600 rounded-lg font-semibold flex-1"
+              className="px-6 border-orange-700 border-2 rounded-lg font-semibold flex-1"
               onClick={() =>
                 setAnswers([
                   ...answers,
@@ -111,7 +111,7 @@ function InputForm({ songList, song, answers, setAnswers }) {
               Skip
             </button>
             <button
-              className="px-6 py-4 bg-green-700 rounded-lg font-semibold flex-1"
+              className="px-6 py-4 bg-orange-700 rounded-lg font-semibold flex-1"
               onClick={handleClick}
             >
               OK

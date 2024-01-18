@@ -1,6 +1,6 @@
 import React from "react";
 
-function Answers({ answers }) {
+function Answers({ answers, timeArray }) {
   const n_answers = 5;
   const answersDisplay = [
     ...answers,
@@ -8,19 +8,26 @@ function Answers({ answers }) {
   ];
 
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="gap-2 w-full flex flex-col items-start justify-start ">
       {answersDisplay.map((answer, idx) => {
         return (
           <div
             key={idx}
-            className="border-[1px] w-full h-12 flex items-center px-6"
-            style={{
-              borderColor: answer.correct === null ? "#222" : answer.correct
-                ? "#0f0"
-                : "#f00",
-            }}
+            className="flex flex-row items-center justify-start gap-2 w-full"
           >
-            {answer.song}
+            <div
+              className="border-[1px] w-full h-12 flex items-center px-6"
+              style={{
+                borderColor:
+                  answer.correct === null
+                    ? "#222"
+                    : answer.correct
+                    ? "#0f0"
+                    : "#f00",
+              }}
+            >
+              {answer.song}
+            </div>
           </div>
         );
       })}
