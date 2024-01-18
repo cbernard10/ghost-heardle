@@ -39,7 +39,7 @@ function Container() {
   const randomSong = songs[idx];
 
   return (
-    <div className="flex flex-col mx-auto max-w-[500px] items-center justify-center gap-6 py-12">
+    <div className="flex flex-col mx-auto max-w-[500px] items-center justify-center gap-6 py-12 px-6">
       <Answers answers={answers} />
       <Player song={randomSong} answers={answers} />
       <InputForm

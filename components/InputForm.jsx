@@ -38,11 +38,13 @@ function InputForm({ songList, song, answers, setAnswers }) {
   return (
     <>
       {answers[answers.length - 1] && answers[answers.length - 1].correct ? (
-        <p>Congratulations, today&apos;s song was {song.title}</p>
+        <p className="text-xl">
+          Congratulations, today&apos;s song was {song.title}
+        </p>
       ) : answers.length >= 5 ? (
         <p>Sorry, today&apos;s song was {song.title}</p>
       ) : (
-        <div className="w-full h-auto outline-none flex flex-row gap-12">
+        <div className="w-full h-auto outline-none flex flex-col gap-4">
           <div className="w-full">
             <Select
               placeholder="Search"
@@ -93,12 +95,28 @@ function InputForm({ songList, song, answers, setAnswers }) {
               }}
             />
           </div>
-          <button
-            className="px-6 bg-green-700 rounded-lg font-semibold"
-            onClick={handleClick}
-          >
-            Submit
-          </button>
+          <div className="flex flex-row w-full gap-6">
+            <button
+              className="px-6 bg-red-600 rounded-lg font-semibold flex-1"
+              onClick={() =>
+                setAnswers([
+                  ...answers,
+                  {
+                    song: "Skipped",
+                    correct: null,
+                  },
+                ])
+              }
+            >
+              Skip
+            </button>
+            <button
+              className="px-6 py-4 bg-green-700 rounded-lg font-semibold flex-1"
+              onClick={handleClick}
+            >
+              OK
+            </button>
+          </div>
         </div>
       )}
     </>

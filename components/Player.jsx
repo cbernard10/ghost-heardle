@@ -9,7 +9,7 @@ let videoElement = null;
 
 function Player({ song, answers }) {
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 1); // 10 minutes timer
+  time.setSeconds(time.getSeconds() + 5000); // 10 minutes timer
   const expiryTimestamp = time;
 
   const {
@@ -35,9 +35,10 @@ function Player({ song, answers }) {
   const togglePause = () => {
     setIsPaused(!isPaused);
     const time = new Date();
-    time.setSeconds(
-      time.getSeconds() + [1, 2, 4, 8, 12, 5000][answers.length]
-    ); // 1 sec timer
+    if (answers.length > 0 && answers[answers.length - 1].correct) {
+      time.setSeconds(5000);
+    }
+    time.setSeconds(time.getSeconds() + [1, 2, 4, 8, 12, 5000][answers.length]); // 1 sec timer
     restart(time);
   };
 
@@ -73,12 +74,16 @@ function Player({ song, answers }) {
         <YouTube videoId={song.url} opts={opts} onReady={_onReady} />
       </div>
 
-      {isReady && <button
-        className="bg-green-600 w-12 h-12 rounded-full"
-        onClick={togglePause}
-      >
-        Play
-      </button>}
+      {isReady && (
+        <button
+          className="w-16 h-12 rounded-full font-medium bg-gradient-to-br from-blue-700 to-blue-900 text-white
+            hover:from-blue-900 hover:to-blue-700 border-2 border-blue-900
+          "
+          onClick={togglePause}
+        >
+          Play
+        </button>
+      )}
     </div>
   );
 }
