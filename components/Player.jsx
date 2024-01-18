@@ -29,6 +29,7 @@ function Player({ song, answers }) {
     autoStart: false,
   });
 
+
   const [isPaused, setIsPaused] = useState(true);
   const [isReady, setIsReady] = useState(false);
 
@@ -38,7 +39,7 @@ function Player({ song, answers }) {
     if (answers.length > 0 && answers[answers.length - 1].correct) {
       time.setSeconds(5000);
     }
-    time.setSeconds(time.getSeconds() + [1, 2, 4, 8, 12, 5000][answers.length]); // 1 sec timer
+    time.setSeconds(time.getSeconds() + [1, 3, 4, 8, 12, 5000][answers.length]); // 1 sec timer
     restart(time);
   };
 
@@ -63,7 +64,7 @@ function Player({ song, answers }) {
     width: "0",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 0,
+      autoplay: 1,
       controls: 0,
     },
   };
