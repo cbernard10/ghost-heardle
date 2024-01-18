@@ -28,14 +28,12 @@ function Container() {
     ["tMwmEcKVgtM", "Witch Image"],
     ["tP_Tz35iob4", "Helvetesfönster"],
     ["RL8Ct8dKmAk", "Life Eternal"],
-
-
-].map((song) => {
+  ].map((song) => {
     return { url: song[0], title: song[1] };
   });
 
   const dayOfMonth = new Date().getDate() + 1;
-  const idx = dayOfMonth % songs.length;
+  const idx = (dayOfMonth ** 7 - 1) % songs.length;
   const randomSong = songs[idx];
 
   return (
