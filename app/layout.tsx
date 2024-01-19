@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Hanken_Grotesk } from "next/font/google";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const hanken = Hanken_Grotesk({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-neutral-950 text-neutral-100">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
