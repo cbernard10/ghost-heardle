@@ -6,7 +6,7 @@ import Select from "react-select";
 function InputForm({ songList, song, answers, setAnswers }) {
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const options = songList.map((song) => {
+  const options = songList.sort().map((song) => {
     return { value: song.title, label: song.title };
   });
 
