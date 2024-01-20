@@ -56,7 +56,7 @@ function Container() {
 
   return (
     <div className="flex flex-col mx-auto max-w-[500px] items-center justify-center gap-6 py-12 px-6">
-      <Answers answers={answers} timeArray={timeArray} />
+      <Answers answers={answers} />
       <Player song={randomSong} answers={answers} timeArray={timeArray} />
       <InputForm
         songList={songs.sort((a, b) => {
