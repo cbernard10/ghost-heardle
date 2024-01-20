@@ -1,6 +1,6 @@
 import React from "react";
 
-function Answers({ answers, timeArray }) {
+function Answers({ answers }) {
   const n_answers = 5;
   const answersDisplay = [
     ...answers,

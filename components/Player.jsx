@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import YouTube, { YouTubePlayer } from "react-youtube";
+import YouTube from "react-youtube";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useTimer } from "react-timer-hook";

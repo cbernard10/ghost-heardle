@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Hanken_Grotesk } from "next/font/google";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
-const hanken = Hanken_Grotesk({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
